@@ -4,9 +4,9 @@ SERVICE_NAME = node
 start:
 	docker-compose up -d --build
 
-.PHONY: logs
-logs:
-	docker-compose logs
+.PHONY: bash
+bash:
+	docker-compose exec $(SERVICE_NAME) /bin/ash
 
 .PHONY: restart
 restart:
@@ -18,6 +18,6 @@ restart:
 kill:
 	docker-compose kill
 
-.PHONY: bash
-bash:
-	docker-compose exec $(SERVICE_NAME) /bin/ash
+.PHONY: logs
+logs:
+	docker-compose logs
