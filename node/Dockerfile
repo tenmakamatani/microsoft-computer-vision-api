@@ -1,7 +1,7 @@
-FROM node:latest
+FROM node:8.16.1-alpine
 
-WORKDIR /User/home/workspace
+WORKDIR /root/workspace
 
-COPY ./workspace /User/home/workspace
+COPY ./workspace /root/workspace
 
 RUN yarn install

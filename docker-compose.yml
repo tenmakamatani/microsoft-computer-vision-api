@@ -4,7 +4,7 @@ services:
     node:
         build: ./node
         volumes:
-            - ./node/workspace:/User/home/workspace
-            - /User/home/workspace/node_modules
+            - ./node/workspace:/root/workspace
+            - /root/workspace/node_modules
         tty: true
-        container_name: microsoft-computer-vision-api
+        container_name: node-alpine

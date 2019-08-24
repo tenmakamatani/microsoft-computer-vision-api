@@ -20,4 +20,4 @@ kill:
 
 .PHONY: bash
 bash:
-	docker-compose exec $(SERVICE_NAME) bash
+	docker-compose exec $(SERVICE_NAME) /bin/ash
