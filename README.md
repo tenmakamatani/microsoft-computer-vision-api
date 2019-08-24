@@ -33,6 +33,12 @@ and then
 $ make bash
 ```
 
+#### just run program in container
+
+```
+$ make run
+```
+
 #### kill service
 
 ```
