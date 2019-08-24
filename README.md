@@ -18,6 +18,7 @@ $ cd node/workspace
 $ yarn install (If you don't install yarn, 'npm install')
 $ env API_KEY=YourAPIKey yarn start (or 'env API_KEY=YourAPIKey npm start')
 ```
+then access http://localhost:8000
 
 ### Run docker
 
@@ -44,6 +45,7 @@ $ make bash
 ```
 $ make run
 ```
+then access http://localhost:8000
 
 #### kill service
 
