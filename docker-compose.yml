@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+    node:
+        build: ./node
+        volumes:
+            - ./node/workspace:/User/home/workspace
+            - /User/home/workspace/node_modules
+        tty: true
+        container_name: microsoft-computer-vision-api
