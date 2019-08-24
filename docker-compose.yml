@@ -6,5 +6,7 @@ services:
         volumes:
             - ./node/workspace:/root/workspace
             - /root/workspace/node_modules
+        environment:
+            - API_KEY=${API_KEY}
         tty: true
         container_name: node-alpine
