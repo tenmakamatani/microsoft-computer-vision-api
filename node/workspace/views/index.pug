@@ -7,5 +7,5 @@ html(lang="ja")
         title FileUpload
     body
         form(action="/uploadFile" method="POST" enctype="multipart/form-data")
-            input(id="fileInput" type="file" value="ファイルを選択" name="image")
+            input(type="file" value="ファイルを選択" name="image")
             button(type="submit") 送信
