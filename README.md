@@ -16,10 +16,14 @@ $ cd microsoft-computer-vision-api
 ```
 $ cd node/workspace
 $ yarn install (If you don't install yarn, 'npm install')
-$ yarn start (or 'npm start')
+$ env API_KEY=YourAPIKey yarn start (or 'env API_KEY=YourAPIKey npm start')
 ```
 
 ### Run docker
+
+```
+$ mv .env.example .env (then rewrite .env API_KEY your API key)
+```
 
 #### start service
 
