@@ -14,7 +14,9 @@ $ cd microsoft-computer-vision-api
 ### Run local
 
 ```
-$ node node/workspace/index.js
+$ cd node/workspace
+$ yarn install (If you don't install yarn, 'npm install')
+$ yarn start (or 'npm start')
 ```
 
 ### Run docker
