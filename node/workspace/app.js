@@ -23,8 +23,8 @@ app.get("/", (req, res, next) => {
 });
 
 // router setting
-const fileUploadRouter = require("./routes/fileUpload");
-app.use("/fileUpload", fileUploadRouter);
+const uploadFileRouter = require("./routes/uploadFile");
+app.use("/uploadFile", uploadFileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
