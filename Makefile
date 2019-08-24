@@ -8,6 +8,10 @@ start:
 bash:
 	docker-compose exec $(SERVICE_NAME) /bin/ash
 
+.PHONY: run
+run:
+	docker-compose exec $(SERVICE_NAME) yarn start
+
 .PHONY: restart
 restart:
 	docker-compose kill && \
