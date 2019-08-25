@@ -23,8 +23,10 @@ router.post("/", uploader, async (req, res, next) => {
 
     const apiKey = process.env.API_KEY;
 
+    // request URL
     const uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze";
 
+    // request param
     const params = {
         "visualFeatures": "Categories, Color, Description, Tags",
         "detail": "",
@@ -41,16 +43,18 @@ router.post("/", uploader, async (req, res, next) => {
         body: req.file.buffer,
     };
 
+    // API connection
     const result = await rp.post(options).catch((err) => {
         const apiConnectionError = new Error("API通信においてエラーが発生しました");
         apiConnectionError.status = 404;
         next(apiConnectionError);
     });
 
+    // parse json result
     const jsonResponse = JSON.parse(result);
     const tags = shapeTags(jsonResponse.tags);
     
-    // 画像表示のためにbase64にエンコーディング
+    // encode binary to base64
     const base64Image = req.file.buffer.toString("base64");
     
     res.render("index", {
@@ -60,7 +64,7 @@ router.post("/", uploader, async (req, res, next) => {
     });
 });
 
-// tagのconfidenceが0.987654...のような値になっているので整数%に修正
+// fix tag confidence to integer
 function shapeTags(tags) {
     const shapedTags = [];
     tags.forEach((tag) => {
