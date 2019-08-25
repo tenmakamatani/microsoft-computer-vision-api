@@ -7,8 +7,13 @@ html(lang="ja")
         title FileUpload
     body
         form(action="/uploadFile" method="POST" enctype="multipart/form-data")
-            input(type="file" value="ファイルを選択" name="image" required)
+            input(type="file" value="ファイルを選択" name="image" id="image-input" required)
             button(type="submit") 送信
-        if tags
-            each tag in tags
-                p #{tag.name} : #{tag.confidence}
+        div.image-tags-container
+            div.image
+                image(src="" id="preview")
+            div.tags
+                if tags
+                    ul
+                        each tag in tags
+                            li #{tag.name} : #{tag.confidence}
