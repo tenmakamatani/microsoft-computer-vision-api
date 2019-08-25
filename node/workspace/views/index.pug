@@ -9,3 +9,6 @@ html(lang="ja")
         form(action="/uploadFile" method="POST" enctype="multipart/form-data")
             input(type="file" value="ファイルを選択" name="image" required)
             button(type="submit") 送信
+        if tags
+            each tag in tags
+                p #{tag.name} : #{tag.confidence}

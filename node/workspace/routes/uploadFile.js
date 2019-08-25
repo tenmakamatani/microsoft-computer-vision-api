@@ -47,8 +47,23 @@ router.post("/", uploader, async (req, res, next) => {
         next(apiConnectionError);
     });
 
-    let jsonResponse = JSON.stringify(JSON.parse(result), null, '  ');
-    console.log(jsonResponse);
+    const jsonResponse = JSON.parse(result);
+    const tags = shapeTags(jsonResponse.tags);
+    
+    res.render("index", {
+        "tags": tags
+    });
 });
+
+// tagのconfidenceが0.987654...のような値になっているので整数%に修正
+function shapeTags(tags) {
+    const shapedTags = [];
+    tags.forEach((tag) => {
+        const shapedTag = tag;
+        shapedTag.confidence = String(Math.round(tag.confidence * 100)) + "%";
+        shapedTags.push(shapedTag);
+    });
+    return tags;
+}
 
 module.exports = router;
