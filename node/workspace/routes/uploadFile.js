@@ -35,7 +35,7 @@ router.post("/", uploader, async (req, res, next) => {
         uri: uriBase,
         qs: params,
         headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/octet-stream",
             "Ocp-Apim-Subscription-Key": apiKey
         },
         body: req.file.buffer,
