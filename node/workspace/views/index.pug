@@ -4,16 +4,17 @@ html(lang="ja")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="./css/style.css")
         title FileUpload
     body
         form(action="/uploadFile" method="POST" enctype="multipart/form-data")
             input(type="file" value="ファイルを選択" name="image" id="image-input" required)
             button(type="submit") 送信
-        div.image-tags-container
-            div.image
-                image(src="" id="preview")
-            div.tags
-                if tags
+        if tags
+            div.image-tags-container
+                div.image
+                    image(src=`data:${imageType};base64,${imageData}` width="500px" height="auto" alter="image" id="preview")
+                div.tags
                     ul
                         each tag in tags
                             li #{tag.name} : #{tag.confidence}

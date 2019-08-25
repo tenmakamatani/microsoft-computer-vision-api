@@ -50,8 +50,13 @@ router.post("/", uploader, async (req, res, next) => {
     const jsonResponse = JSON.parse(result);
     const tags = shapeTags(jsonResponse.tags);
     
+    // 画像表示のためにbase64にエンコーディング
+    const base64Image = req.file.buffer.toString("base64");
+    
     res.render("index", {
-        "tags": tags
+        "tags": tags,
+        "imageType": req.file.mimetype,
+        "imageData": base64Image
     });
 });
 
